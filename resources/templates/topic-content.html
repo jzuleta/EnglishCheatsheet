@@ -1,0 +1,30 @@
+﻿<div id="topic-card-a" class="detail-topic">
+    <p class="dynamic">{{english_description}}</p>
+    <p class="content-example dynamic">{{spanish_description}}</p>
+</div>
+<div class="action-panel">
+    <div class="action-buttom left" data-card="a">translate</div>
+    <div style="clear:both"></div>
+</div>
+<div class="content-list-topic">
+    ﻿{{#items}}
+    <div id="topic-card-{{id}}" class="topic-card">
+        <div class="topic-concept dynamic">{{name}}</div>
+        <div class="topic-concept content-example dynamic">{{meaning}}</div>
+        <div class="concept-detail dynamic">
+            {{item_description}}
+        </div>
+        <div class="concept-detail content-example dynamic">
+            {{item_translate}}
+        </div>
+        <div class="title-example dynamic">Example:</div>
+        <div class="title-example content-example dynamic">Ejemplo:</div>
+        <div class="topic-example dynamic">{{english_example}}</div>
+        <div class="topic-example content-example dynamic">{{spanish_example}}</div>
+        <div class="action-panel">
+            <div class="action-buttom right" data-card="{{id}}">translate</div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+    {{/items}}
+</div>

@@ -1,0 +1,328 @@
+﻿* {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+body {
+    background: rgba(249, 249, 249, 1) none repeat scroll 0 0;
+}
+
+#app-transitions {
+    background: white none repeat scroll 0 0;
+    margin-top: 57px;
+    overflow-y: auto !important;
+}
+
+#app-status-bar,
+.top-bar-content,
+.app-top-bar {
+    transition: background 0.25s ease 0s, height 0.25s ease 0s !important;
+    !important;
+}
+
+#app-status-bar {
+    background: rgba(25, 118, 210, 1);
+    display: none;
+    height: 25px;
+}
+
+.transition-component {
+    /*height: 100%;*/
+    width: 100%;
+}
+
+.top-bar-content {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+.app-top-bar {
+    background: rgba(33, 150, 243, 1);
+    height: 57px;
+    width: 100% !important;
+    z-index: 2;
+}
+
+.top-bar-state {
+    align-items: center;
+    display: flex !important;
+    height: 57px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.app-top-bar h3 {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.top-bar-icon {
+    background-position: center center;
+    background-size: 29px auto;
+    height: 28px;
+    margin-right: 35px;
+    width: 28px;
+}
+
+.home-icon {
+    background-image: url(../images/home.svg);
+}
+
+.close-icon {
+    background-image: url(../images/arrow_back.svg);
+}
+
+.item-icon {
+    background-image: url(../images/format.svg);
+}
+
+.cancel-icon {
+    background-image: url(../images/close.svg);
+}
+
+.cancel-icon {
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    top: 14px;
+}
+
+#content-list-items {}
+
+.list-item {
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px;
+}
+
+.item-word {
+    align-items: center;
+    color: white;
+    display: flex;
+    float: left;
+    font-size: 25px;
+    font-weight: 300;
+    height: 40px;
+    justify-content: center;
+    margin-right: 16px;
+    width: 40px;
+}
+
+.item-title {
+    color: #4d4d4d;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.item-subtitle {
+    color: rgba(114, 114, 114, 1);
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: -4px;
+}
+
+.item-text {
+    color: rgba(153, 153, 153, 1);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    margin: 5px 0 0;
+    max-height: 38px;
+    overflow: hidden;
+}
+
+.item-terminator {
+    background: rgba(0, 0, 0, 0) linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), #ffffff, #ffffff) repeat scroll 0 0;
+    height: 19px;
+    margin-top: -17px;
+    position: absolute;
+    width: 100%;
+}
+
+.detail-topic {
+    background: rgba(245, 245, 245, 1) none repeat scroll 0 0;
+    padding: 16px;
+}
+
+.detail-topic p {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    margin: 0;
+}
+
+.action-panel {
+    background-color: rgba(255, 255, 255, 1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0 15px;
+}
+
+.action-buttom {
+    color: rgba(25, 118, 210, 1);
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 10px;
+    padding: 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.content-list-topic {
+    background: rgba(247, 247, 247, 1) none repeat scroll 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
+    padding: 10px 8px;
+}
+
+.topic-card {
+    background: white none repeat scroll 0 0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    margin-top: 10px;
+}
+
+.topic-concept {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 24px;
+    font-weight: 300;
+    margin: 0 15px;
+    padding-top: 15px;
+}
+
+.topic-example {
+    color: rgba(0, 0, 0, 0.54);
+    font-style: italic;
+    font-weight: 400;
+    margin: 0 0 10px 15px;
+}
+
+.title-example {
+    color: rgba(117, 117, 117, 1);
+    font-size: 13px;
+    margin: 0 0 0 15px;
+}
+
+.content-example {
+    display: none;
+}
+
+.concept-detail {
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    margin: 0 15px 15px;
+}
+
+.word-content {
+    background: white none repeat scroll 0 0;
+}
+
+.main-letter {
+    align-items: center;
+    background: rgba(229, 229, 229, 1) none repeat scroll 0 0;
+    border-radius: 50%;
+    color: rgba(63, 81, 181, 1);
+    display: flex;
+    float: left;
+    font-size: 25px;
+    font-weight: 400;
+    height: 40px;
+    justify-content: center;
+    margin-left: 10px;
+    margin-top: 15px;
+    width: 40px;
+}
+
+.word-list {
+    margin-left: 72px;
+}
+
+.word-description {
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    height: 72px;
+    line-height: 18px;
+}
+
+.spanish-word {
+    color: rgba(151, 151, 151, 1);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.word-icon {
+    background-image: url("../images/arrow_right.svg");
+    height: 24px;
+    margin-top: -30px;
+    position: absolute;
+    right: 16px;
+    width: 24px;
+}
+
+#word-selection-content {
+    background-color: white;
+    padding-bottom: 15px;
+    min-height: 200px;
+}
+
+#word-panel .alternative-content:last-child {
+    border-bottom: medium none;
+}
+
+#alternativa-information {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    padding: 0 16px;
+    position: relative;
+}
+
+#alternativa-information > h3 {
+    color: rgba(117, 117, 117, 1);
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.divider-content {
+    align-items: center;
+    background-color: rgba(241, 241, 241, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(117, 117, 117, 1);
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+    height: 57px;
+    padding: 0 16px;
+}
+
+.alternative-content {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 57px;
+    padding: 15px 0;
+}
+
+.alternative-text {
+    color: rgba(117, 117, 117, 1);
+    display: inline;
+    font-size: 16px;
+}
+
+.alternative-detail {
+    color: rgba(169, 169, 170, 1);
+    display: inline;
+    font-style: italic;
+    font-weight: 300;
+    position: absolute;
+    right: 16px;
+}
+
+#word-examples-content > p {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 15px;
+    font-weight: 400;
+    margin: 11px 16px;
+}

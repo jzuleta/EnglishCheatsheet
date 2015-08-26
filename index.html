@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Cheatsheet</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css"/>
+    <link rel="stylesheet" href="vendors/foundation-5.5.2/css/normalize.css"/>
+    <link rel="stylesheet" href="vendors/foundation-5.5.2/css/foundation.css"/>
+    <link rel="stylesheet" href="resources/css/app.css"/>
+    <link rel="stylesheet" href="resources/css/spinner.css"/>
+    <script src="vendors/foundation-5.5.2/js/vendor/modernizr.js"></script>
+</head>
+<body>
+    <div class="top-bar-content">
+        <div id="app-status-bar"></div>
+        <div id="top-bar-content" class="app-top-bar small-border">
+            <div data-slidr="home" class="top-bar-state">
+                <span class="top-bar-icon home-icon"></span>
+                <h3>English Cheatsheet</h3>
+            </div>
+            <div data-slidr="detail" class="top-bar-state">
+                <span id="back-list" class="top-bar-icon close-icon" data-state="topic-list" data-top="home"></span>
+                <h3 id="topic-title">...</h3>
+            </div>
+            <div data-slidr="word" class="top-bar-state">
+                <span class="top-bar-icon item-icon"></span>
+                <h3 id="word-title">...</h3> 
+                <span id="back-words" data-top="detail" data-state="topic-content" class="top-bar-icon cancel-icon"></span>
+            </div>
+        </div>
+    </div>
+    <div id="app-content" class="row">
+        <div id="app-transitions" class="transition-component">
+            <div data-slidr="topic-list" class="transition-component">
+                <div id="content-list-items"> </div>
+            </div>
+            <div id="topic-panel" data-slidr="topic-content" class="transition-component"> </div>
+            <div id="word-panel" data-slidr="word-content" class="transition-component"> </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="vendors/foundation-5.5.2/js/vendor/jquery.js"></script>
+    <script type="text/javascript" src="vendors/foundation-5.5.2/js/foundation.min.js"></script>
+    <script type="text/javascript" src="vendors/slidr/slidr.min.js"></script>
+    <script src="vendors/mustache-js/mustache.min.js"></script>
+    <script src="resources/data/database.js"></script>
+    <script src="resources/js/templates-config.js"></script>
+    <script type="text/javascript" src="resources/js/screen-config.js"></script>
+    <script type="text/javascript" src="resources/js/app.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>

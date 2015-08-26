@@ -1,0 +1,16 @@
+﻿{{#items}}
+<div class="word-content">
+    <div class="main-letter">{{letter}}</div>
+    <div class="word-list">
+        {{#words}}
+        <div class="word-description" data-word="{{wordId}}" data-letter="{{letterId}}">
+            <div>
+                <div class="english-word">{{word}}</div>
+                <div class="spanish-word">{{translation}}</div>
+                <span class="word-icon"></span>
+            </div>         
+        </div>
+        {{/words}}
+    </div>
+</div>
+{{/items}}
