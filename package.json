@@ -1,0 +1,25 @@
+{
+  "name": "EnglishCheatsheet",
+  "version": "1.0.0",
+  "description": "Aplicación para móviles que fomenta el aprendizaje de vocabulario en inglés. ",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jzuleta/EnglishCheatsheet.git"
+  },
+  "keywords": [
+    "learn",
+    "english"
+  ],
+  "author": "Jairo Zuleta Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jzuleta/EnglishCheatsheet/issues"
+  },
+  "homepage": "https://github.com/jzuleta/EnglishCheatsheet",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-rename": "^1.2.2"
+  }
+}
