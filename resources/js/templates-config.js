@@ -9,7 +9,7 @@
                 name: 'topic-content.html',
                 content: ''
             },
-            list_item: {
+            item_list: {
                 name: 'list-content.html',
                 content: ''
             },

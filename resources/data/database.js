@@ -3559,7 +3559,7 @@
             ]
         },
         s = {
-            item: { /*topic-content*/
+            item: {
                 colors: {
                     primary: "#00796B",
                     secondary: "#009688"
@@ -3572,7 +3572,7 @@
                     primary: "#303F9F",
                     secondary: "#3F51B5"
                 },
-                template: "list_item",
+                template: "item_list",
                 eventToAdd: 'select-content'
             },
             init: {

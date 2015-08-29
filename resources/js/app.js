@@ -5,13 +5,15 @@
         wordInformation: null,
         topicTemplate: null,
         topicIde: null,
-        detailState: true
+        detailState: true,
+        lastHash: '#topic-list',
+        nextState: {}
     },
         st = {
-            backToWords : "#back-words",
+            backToWords: "#back-words",
             backToList: '#back-list',
             listTopics: 'div.list-item',
-            appTransition: 'app-transitions',
+            appTransition: '#app-transitions',
             topBarContent: 'top-bar-content',
             topics: '#content-list-items',
             topicPanel: '#topic-panel',
@@ -22,7 +24,7 @@
             wordSelectionContent: '#word-selection-content',
             wordContent: '.word-content',
             wordTitle: '#word-title',
-            wordPanel:'#word-panel'
+            wordPanel: '#word-panel'
         },
         dom = {},
         catchDom = function () {
@@ -30,7 +32,7 @@
             dom.backButton = $(st.backToList);
             dom.topicsContent = $(st.topics);
             dom.topicsPanel = $(st.topicPanel);
-            dom.contentTopBar =  $(st.topBar);
+            dom.contentTopBar = $(st.topBar);
             dom.statusBar = $(st.statusBar);
             dom.contentListItems = $(st.contentListItems);
             dom.panels = null;
@@ -40,6 +42,8 @@
         },
         navigationControl = {
             createTopicContent: function () {
+                $(st.listTopics).toggle();
+
                 app.selectedTopic = $(this);
                 app.selectedConfig = db.config[app.selectedTopic.data('config')];
                 app.topicTemplate = templates.collections[app.selectedConfig.template].content;
@@ -47,19 +51,18 @@
 
                 dom.topicsPanel.html(Mustache.render(app.topicTemplate, db.dataItems.list[app.topicIde]));
                 dom.topicTitle.text(app.selectedTopic.data('name'));
-                $(st.listTopics).toggle();
 
-                navigationControl.statesControl(app.selectedTopic);
                 navigationControl.changeAppBar(app.selectedConfig.colors);
-
                 navigationControl.fillEvents(app.selectedConfig.eventToAdd);
+
+                layoutControl.layoutSelected("topic-selected");
             },
-            changeAppBar: function(colors){
+            changeAppBar: function (colors) {
                 dom.contentTopBar.css('background', colors.secondary);
                 dom.statusBar.css('background', colors.primary);
             },
             createTransitions: function () {
-                dom.panels = slidr.create(st.appTransition, {
+                dom.panels = slidr.create(st.appTransition.slice(1), {
                     controls: "none",
                     fade: true,
                     overflow: false,
@@ -79,17 +82,12 @@
                 dom.listItems = $(st.listTopics);
             },
             initMenu: function () {
-                dom.topicsPanel.empty();
-                navigationControl.statesControl($(this));
-                navigationControl.changeAppBar(db.config.init.colors);
-
                 $(st.listTopics).toggle();
+                dom.topicsPanel.empty();
+                navigationControl.changeAppBar(db.config.init.colors);
+                layoutControl.layoutSelected("topic-list");
             },
-            statesControl: function (element) {
-                dom.panels.slide(element.data('state'));
-                dom.topBar.slide(element.data('top'));
-            },
-            fillEvents: function (eventName){
+            fillEvents: function (eventName) {
                 switch (eventName) {
                     case 'translate-content':
                         events.controlTranslations();
@@ -102,10 +100,10 @@
                 dom.topBar.slide("word");
                 dom.panels.slide("word-content");
                 dom.wordTitle.text(app.wordInformation.word);
-                dom.wordPanel.html(Mustache.render(templates.collections.word_content.content, app.wordInformation));                
-            }           
+                dom.wordPanel.html(Mustache.render(templates.collections.word_content.content, app.wordInformation));
+            }
         },
-        events = {           
+        events = {
             controlTranslations: function () {
                 $(st.buttonAction).click(function () {
                     $('#topic-card-' + $(this).data('card') + ' .dynamic').toggle();
@@ -116,14 +114,57 @@
                     var selection = $(this);
                     $(st.wordContent).toggle();
                     app.wordInformation = db.dataItems.list[app.topicIde]
-                                                         .items[selection.data('letter')]
-                                                         .words[selection.data('word')];
+                        .items[selection.data('letter')]
+                        .words[selection.data('word')];
                     navigationControl.createWordContent();
-                    
+
+                    layoutControl.layoutSelected("word-selected");
                 });
             }
         },
+        layoutControl = {
+            hashListener: function () {
+                $(window).bind('hashchange', function (a) {
+                    layoutControl.modifyState();
+                    $(st.appTransition).animate({
+                        scrollTop: 0
+                    }, "fast");
+                });
+            },
+            layoutSelected: function (hash) {
+                switch (hash) {
+                    case "topic-selected":
+                        app.nextState = {
+                            panel: "topic-content",
+                            top: "detail"
+                        }
+                        break;
+                    case "word-selected":
+                        app.nextState = {
+                            panel: "word-content",
+                            top: "word"
+                        }
+                        break;
+                    case "topic-list":
+                        app.nextState = {
+                            panel: "topic-list",
+                            top: "home"
+                        }
+                }
+
+                window.location.href = "#" + hash;
+            },
+            modifyState: function () {
+                dom.panels.slide(app.nextState.panel);
+                dom.topBar.slide(app.nextState.top);
+
+                app.lastHash = location.hash.slice(1);
+
+            }
+        },
         suscribeEvents = function () {
+            layoutControl.hashListener();
+
             navigationControl.createTransitions();
             navigationControl.createTopicsList();
 
@@ -131,10 +172,9 @@
             dom.backButton.on('click', navigationControl.initMenu);
             dom.backWords.on('click', function () {
                 $(st.wordContent).toggle();
-                navigationControl.statesControl($(this));
+                layoutControl.layoutSelected("topic-selected");
             });
         };
-
     catchDom();
     suscribeEvents();
 })();
